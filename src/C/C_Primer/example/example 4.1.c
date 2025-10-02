@@ -8,17 +8,17 @@ int main()
    int size, letters;
    char name[40];//name是一个数组，可以容纳40个字符
 
-   printf("What is your first name? ");
+   printf("你的名字是什么? ");
    scanf("%s", name);
-   printf("What is your last name? ");
+   printf("你的姓氏是什么? ");
    scanf("%s", &name[strlen(name)]);
 
    size = sizeof name;
    letters = strlen(name);
    volume = size / DEFINE;
-   printf("Well, %s, your volume is %2.2f cubic feet.\n", name, volume);
-   printf("Also, your first name has %d letters,\n", letters);
-   printf("and we have %d bytes to store it.\n", size);
+   printf("好的, %s，你的体积是 %2.2f 立方英尺\n", name, volume);
+   printf("你的名字有 %d 个字母,\n", letters);
+   printf("我们使用 %d 个字节去存储他\n", size);
 
    return 0;
 }
