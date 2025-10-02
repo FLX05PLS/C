@@ -1,5 +1,4 @@
 #include <stdio.h>
-int main(void)
 
 #define A1 20
 #define A2 10
@@ -13,6 +12,8 @@ int main(void)
 #define C2 10
 #define C3 15
 #define C4 25//菜品价格
+
+int main(void)
 
 {   
     int id_number;//会员编号
@@ -48,7 +49,6 @@ int main(void)
         scanf("%d", &people_number);
         printf("用餐人数：%d\n", people_number);//这里需要塞一个循环，输入一个正整数执行下一步，否则提示重新输入
         
-
         printf("请输入菜品序号：");
         scanf("%d", &id_dishes);
         printf("已购买%d，需要加菜吗？", id_dishes);//循环
