@@ -56,7 +56,9 @@ int main(void)
 
             printf("请输入菜品序号：");
             scanf("%d", &id_dishes);
-            printf("已购买%d,需要加菜吗?", id_dishes);//循环
+            printf("已购买%d,需要加菜吗?", id_dishes);
+            //循环
+            //我想嵌套一个do while
             //x=x+y
 
 
