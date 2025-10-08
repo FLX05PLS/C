@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
-
+//为什么运行不了
 #define A1 20
 #define A2 10
 #define A3 15
@@ -74,7 +74,7 @@ int main(void)
                 else if (strcmp(id_dishes, "C1") == 0) all_price += C1;
                 else if (strcmp(id_dishes, "C2") == 0) all_price += C2;
                 else if (strcmp(id_dishes, "C3") == 0) all_price += C3;
-                else if (strcmp(id_dishes, "C4") == 0) all_price += C4;
+                else if (strcmp(id_dishes, "C4") == 0) all_price += C4;//计算总价，序号无法直接加减
                 else 
                 {
                     printf("菜品序号输入错误，请重新输入！\n");
