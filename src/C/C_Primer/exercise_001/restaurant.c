@@ -1,5 +1,6 @@
-//debug中
 #include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
 
 #define A1 20
 #define A2 10
@@ -19,14 +20,16 @@ int main(void)
 {   
     int id_number;//会员编号
     int people_number;//用餐人数
-    int id_dishes;//菜品序号
+    char id_dishes[3];//菜品序号
     int all_price=0;
-    //点单用的
+    int input;//是否继续点单
+    bool flag;
 
     do
     {
         printf("请输入会员编号：");
         scanf("%d", &id_number);
+
         if (id_number == 2013456)
         {
             printf("欢迎光临！%d\n", id_number);
@@ -57,32 +60,37 @@ int main(void)
 
             do
             {
-                printf("请输入菜品序号：");
-                scanf("%d", &id_dishes);
-                all_price += id_dishes;
-                printf("已购买%d,需要加菜吗?", id_dishes);
-                printf("1.加菜 0.结束点单\n");
+                printf("\n请输入菜品序号(如A1):");
+                scanf("%s", id_dishes);
 
-                _Bool flag;
-                scanf("%d", &flag);
-
-                if (flag == 1)
+                if (strcmp(id_dishes, "A1") == 0) all_price += A1;
+                else if (strcmp(id_dishes, "A2") == 0) all_price += A2;
+                else if (strcmp(id_dishes, "A3") == 0) all_price += A3;
+                else if (strcmp(id_dishes, "A4") == 0) all_price += A4;
+                else if (strcmp(id_dishes, "B1") == 0) all_price += B1;
+                else if (strcmp(id_dishes, "B2") == 0) all_price += B2;
+                else if (strcmp(id_dishes, "B3") == 0) all_price += B3;
+                else if (strcmp(id_dishes, "B4") == 0) all_price += B4;
+                else if (strcmp(id_dishes, "C1") == 0) all_price += C1;
+                else if (strcmp(id_dishes, "C2") == 0) all_price += C2;
+                else if (strcmp(id_dishes, "C3") == 0) all_price += C3;
+                else if (strcmp(id_dishes, "C4") == 0) all_price += C4;
+                else 
                 {
-                    printf("请输入菜品序号：");
-                    scanf("%d", &id_dishes);
-                    all_price += id_dishes;
-                    printf("已购买%d,需要加菜吗?", id_dishes);
-                    printf("1.加菜 0.结束点单\n");
-                    scanf("%d", &flag);
+                    printf("菜品序号输入错误，请重新输入！\n");
+                    continue;//输入错误，重新输入
                 }
-    
-           
-                else
-                {
-                printf("点单结束！\n");
 
-                break;
-                }
+                printf("已购买%s,需要加菜吗?", id_dishes);
+                printf("是否继续加菜？(1=是,0=否)");
+                scanf("%d", &input);
+                flag = input;
+                
+                if (!flag) 
+                {
+                    printf("点单结束！\n");
+                    break;
+                }              
 
             } while (1);//循环点单
             
@@ -101,3 +109,4 @@ int main(void)
 //2.输入用餐人数，用户进行点单
 //3.结束点单循环，获取点单结果并计算总价
 //4.打印小票
+ //需要计算总价，需要注意，菜品序号是字符串，需要转变为数字
