@@ -1,3 +1,4 @@
+//debug中
 #include <stdio.h>
 
 #define A1 20
@@ -19,8 +20,7 @@ int main(void)
     int id_number;//会员编号
     int people_number;//用餐人数
     int id_dishes;//菜品序号
-
-    int all_price;
+    int all_price=0;
     //点单用的
 
     do
@@ -54,15 +54,38 @@ int main(void)
             scanf("%d", &people_number);
             printf("用餐人数：%d\n", people_number);
 
-            printf("请输入菜品序号：");
-            scanf("%d", &id_dishes);
-            printf("已购买%d,需要加菜吗?", id_dishes);
-            //循环
-            //我想嵌套一个do while
-            //x=x+y
 
+            do
+            {
+                printf("请输入菜品序号：");
+                scanf("%d", &id_dishes);
+                all_price += id_dishes;
+                printf("已购买%d,需要加菜吗?", id_dishes);
+                printf("1.加菜 0.结束点单\n");
 
+                _Bool flag;
+                scanf("%d", &flag);
 
+                if (flag == 1)
+                {
+                    printf("请输入菜品序号：");
+                    scanf("%d", &id_dishes);
+                    all_price += id_dishes;
+                    printf("已购买%d,需要加菜吗?", id_dishes);
+                    printf("1.加菜 0.结束点单\n");
+                    scanf("%d", &flag);
+                }
+    
+           
+                else
+                {
+                printf("点单结束！\n");
+
+                break;
+                }
+
+            } while (1);//循环点单
+            
 
             break;
         }
